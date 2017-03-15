@@ -36,12 +36,43 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Data" />
+    <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppSentinela.cs" />
+    <Compile Include="ConfigSentinela.cs" />
+    <Compile Include="Html\Activity\ActHome.cs" />
+    <Compile Include="Html\Activity\ActLogin.cs" />
+    <Compile Include="Html\Activity\ActSentinelaBase.cs" />
+    <Compile Include="Html\Activity\ActServidorCadastro.cs" />
+    <Compile Include="Html\Activity\ActServidorDetalhe.cs" />
+    <Compile Include="Html\Activity\ActSplashScreen.cs" />
+    <Compile Include="Html\Pagina\PagSentinela.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Design\TemaSentinela.cs" />
+    <Compile Include="Server\SrvSentinelaHttp.cs" />
+    <Compile Include="WinService.cs">
+      <SubType>Component</SubType>
+    </Compile>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DigoFramework\DigoFramework.csproj">
+      <Project>{93078de5-a910-4ad6-a942-657582105493}</Project>
+      <Name>DigoFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Web.TypeScript\Web.TypeScript.csproj">
+      <Project>{502b98cf-a528-4168-a5f4-f04641bcee6d}</Project>
+      <Name>Web.TypeScript</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Web\NetZ.Web.csproj">
+      <Project>{bf12701f-12d8-41d0-9269-d8921568aa82}</Project>
+      <Name>NetZ.Web</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

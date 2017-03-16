@@ -38,6 +38,7 @@
     <Reference Include="System" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.ServiceProcess" />
     <Reference Include="System.Xml" />
   </ItemGroup>
@@ -50,7 +51,7 @@
     <Compile Include="Html\Activity\ActServidorCadastro.cs" />
     <Compile Include="Html\Activity\ActServidorDetalhe.cs" />
     <Compile Include="Html\Activity\ActSplashScreen.cs" />
-    <Compile Include="Html\Pagina\PagSentinela.cs" />
+    <Compile Include="Html\Pagina\PagPrincipal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Design\TemaSentinela.cs" />
     <Compile Include="Server\SrvSentinelaHttp.cs" />

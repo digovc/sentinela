@@ -11,7 +11,7 @@ module Sentinela
     // #region Enumerados
     // #endregion Enumerados
 
-    export class PagSentinela extends PagMobile
+    export class PagPrincipal extends PagMobile
     {
         // #region Constantes
         // #endregion Constantes

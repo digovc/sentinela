@@ -1,12 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Sentinela.Html.Activity
+﻿namespace Sentinela.Html.Activity
 {
-    class ActServidorCadastro
+    internal class ActServidorCadastro : ActSentinelaBase
     {
+        #region Constantes
+
+        #endregion Constantes
+
+        #region Atributos
+
+        #endregion Atributos
+
+        #region Construtores
+
+        #endregion Construtores
+
+        #region Métodos
+
+        protected override bool getBooJs()
+        {
+            return true;
+        }
+
+        #endregion Métodos
+
+        #region Eventos
+
+        #endregion Eventos
     }
 }

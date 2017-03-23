@@ -1,9 +1,10 @@
 ﻿using NetZ.Web.Html;
+using NetZ.Web.Html.Componente.Botao;
 using NetZ.Web.Server.Arquivo.Css;
 
 namespace Sentinela.Html.Activity
 {
-    internal class ActSplashScreen : ActSentinelaBase
+    internal class ActVazio : ActSentinelaBase
     {
         #region Constantes
 
@@ -11,7 +12,39 @@ namespace Sentinela.Html.Activity
 
         #region Atributos
 
+        private BotaoHtml _btnAddServidor;
+        private Div _divBtnContainer;
         private Div _divInfo;
+
+        private BotaoHtml btnAddServidor
+        {
+            get
+            {
+                if (_btnAddServidor != null)
+                {
+                    return _btnAddServidor;
+                }
+
+                _btnAddServidor = new BotaoHtml();
+
+                return _btnAddServidor;
+            }
+        }
+
+        private Div divBtnContainer
+        {
+            get
+            {
+                if (_divBtnContainer != null)
+                {
+                    return _divBtnContainer;
+                }
+
+                _divBtnContainer = new Div();
+
+                return _divBtnContainer;
+            }
+        }
 
         private Div divInfo
         {
@@ -50,7 +83,9 @@ namespace Sentinela.Html.Activity
         {
             base.inicializar();
 
-            this.divInfo.strConteudo = string.Format("Versão: {0}", AppSentinela.i.strVersao);
+            this.btnAddServidor.strConteudo = "Adicionar";
+
+            this.divInfo.strConteudo = "Nenhum serviço adicionado";
         }
 
         protected override void montarLayout()
@@ -58,17 +93,19 @@ namespace Sentinela.Html.Activity
             base.montarLayout();
 
             this.divInfo.setPai(this);
+
+            this.divBtnContainer.setPai(this);
+            this.btnAddServidor.setPai(this.divBtnContainer);
         }
 
         protected override void setCss(CssArquivo css)
         {
             base.setCss(css);
 
-            this.divInfo.addCss(css.setBottom(0));
-            this.divInfo.addCss(css.setLineHeight(35));
-            this.divInfo.addCss(css.setPosition("absolute"));
+            this.divBtnContainer.addCss(css.setTextAlign("center"));
+
+            this.divInfo.addCss(css.setLineHeight(50));
             this.divInfo.addCss(css.setTextAlign("center"));
-            this.divInfo.addCss(css.setWidth(100, "%"));
         }
 
         #endregion Métodos

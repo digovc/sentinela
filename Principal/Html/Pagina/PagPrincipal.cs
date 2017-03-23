@@ -15,9 +15,10 @@ namespace Sentinela.Html.Pagina
 
         private ActHome _actHome;
         private ActLogin _actLogin;
-        private ActSplashScreen _actSplashScreen;
         private ActServidorCadastro _actSrvCadastro;
         private ActServidorDetalhe _actSrvDetalhe;
+        private ActSplashScreen _actSplashScreen;
+        private ActVazio _actVazio;
 
         private ActHome actHome
         {
@@ -94,6 +95,21 @@ namespace Sentinela.Html.Pagina
             }
         }
 
+        private ActVazio actVazio
+        {
+            get
+            {
+                if (_actVazio != null)
+                {
+                    return _actVazio;
+                }
+
+                _actVazio = new ActVazio();
+
+                return _actVazio;
+            }
+        }
+
         #endregion Atributos
 
         #region Construtores
@@ -123,10 +139,11 @@ namespace Sentinela.Html.Pagina
             base.montarLayout();
 
             this.actHome.setPai(this);
-            this.actLogin.setPai(this);
+            //this.actLogin.setPai(this);
             this.actSplashScreen.setPai(this);
             this.actSrvCadastro.setPai(this);
             this.actSrvDetalhe.setPai(this);
+            this.actVazio.setPai(this);
         }
 
         protected override void setCss(CssArquivo css)

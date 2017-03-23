@@ -1,6 +1,8 @@
-﻿namespace Sentinela.Html.Activity
+﻿using NetZ.Web.Html.Componente.Mobile;
+
+namespace Sentinela.Html.Componente.Mobile
 {
-    internal class ActLogin : ActSentinelaBase
+    internal class ActionBarSentinela : ActionBarBase
     {
         #region Constantes
 
@@ -15,16 +17,6 @@
         #endregion Construtores
 
         #region Métodos
-
-        protected override bool getBooJs()
-        {
-            return true;
-        }
-
-        protected override bool getBooMostrarLogo()
-        {
-            return true;
-        }
 
         #endregion Métodos
 

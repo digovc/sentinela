@@ -51,6 +51,9 @@
     <Compile Include="Html\Activity\ActServidorCadastro.cs" />
     <Compile Include="Html\Activity\ActServidorDetalhe.cs" />
     <Compile Include="Html\Activity\ActSplashScreen.cs" />
+    <Compile Include="Html\Activity\ActVazio.cs" />
+    <Compile Include="Html\Componente\Campo\CampoSentinela.cs" />
+    <Compile Include="Html\Componente\Mobile\ActionBarSentinela.cs" />
     <Compile Include="Html\Pagina\PagPrincipal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Design\TemaSentinela.cs" />
@@ -73,7 +76,20 @@
       <Name>NetZ.Web</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="res\media\gif\offline.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\media\gif\online.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\media\svg\sentinela-ico.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="res\media\svg\sentinela-logo.svg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

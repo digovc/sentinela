@@ -11,20 +11,20 @@ namespace Sentinela.Server
 
         #region Atributos
 
-        private PagPrincipal _pagPrincipal;
+        private PagSentinelaPrincipal _pagSentinelaPrincipal;
 
-        private PagPrincipal pagPrincipal
+        private PagSentinelaPrincipal pagSentinelaPrincipal
         {
             get
             {
-                if (_pagPrincipal != null)
+                if (_pagSentinelaPrincipal != null)
                 {
-                    return _pagPrincipal;
+                    return _pagSentinelaPrincipal;
                 }
 
-                _pagPrincipal = new PagPrincipal();
+                _pagSentinelaPrincipal = new PagSentinelaPrincipal();
 
-                return _pagPrincipal;
+                return _pagSentinelaPrincipal;
             }
         }
 
@@ -48,7 +48,7 @@ namespace Sentinela.Server
                 return null;
             }
 
-            return new Resposta(objSolicitacao).addHtml(this.pagPrincipal);
+            return new Resposta(objSolicitacao).addHtml(this.pagSentinelaPrincipal);
         }
 
         #endregion Métodos

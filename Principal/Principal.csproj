@@ -54,7 +54,7 @@
     <Compile Include="Html\Activity\ActVazio.cs" />
     <Compile Include="Html\Componente\Campo\CampoSentinela.cs" />
     <Compile Include="Html\Componente\Mobile\ActionBarSentinela.cs" />
-    <Compile Include="Html\Pagina\PagPrincipal.cs" />
+    <Compile Include="Html\Pagina\PagSentinelaPrincipal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Design\TemaSentinela.cs" />
     <Compile Include="Server\SrvSentinelaHttp.cs" />

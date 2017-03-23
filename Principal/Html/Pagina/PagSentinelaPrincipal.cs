@@ -5,7 +5,7 @@ using Sentinela.Html.Activity;
 
 namespace Sentinela.Html.Pagina
 {
-    internal sealed class PagPrincipal : PagMobile
+    internal sealed class PagSentinelaPrincipal : PagMobile
     {
         #region Constantes
 
@@ -114,7 +114,7 @@ namespace Sentinela.Html.Pagina
 
         #region Construtores
 
-        internal PagPrincipal() : base(AppSentinela.i.strNome)
+        internal PagSentinelaPrincipal() : base(AppSentinela.i.strNome)
         {
         }
 

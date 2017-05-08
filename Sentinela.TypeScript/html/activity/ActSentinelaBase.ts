@@ -1,7 +1,6 @@
 ﻿/// <reference path="../../../Web.TypeScript/html/activity/ActivityBase.ts"/>
 
-module Sentinela
-{
+module Sentinela {
     // #region Importações
 
     import ActivityBase = Web.ActivityBase;
@@ -11,8 +10,7 @@ module Sentinela
     // #region Enumerados
     // #endregion Enumerados
 
-    export abstract class ActSentinelaBase extends ActivityBase
-    {
+    export abstract class ActSentinelaBase extends ActivityBase {
         // #region Constantes
         // #endregion Constantes
 
@@ -20,6 +18,7 @@ module Sentinela
         // #endregion Atributos
 
         // #region Construtores
+
         // #endregion Construtores
 
         // #region Métodos

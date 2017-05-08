@@ -15,6 +15,12 @@
         // #endregion Atributos
 
         // #region Construtores
+
+        constructor()
+        {
+            super(ActSplashScreen.name);
+        }
+
         // #endregion Construtores
 
         // #region Métodos

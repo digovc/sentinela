@@ -15,6 +15,12 @@
         // #endregion Atributos
 
         // #region Construtores
+
+        constructor()
+        {
+            super(ActVazio.name);
+        }
+
         // #endregion Construtores
 
         // #region Métodos

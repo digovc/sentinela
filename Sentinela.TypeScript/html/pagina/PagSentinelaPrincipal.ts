@@ -34,6 +34,11 @@ module Sentinela
         }
 
         private _actHome: ActHome;
+        private _actLogin: ActLogin;
+        private _actServidorCadastro: ActServidorCadastro;
+        private _actServidorDetalhe: ActServidorDetalhe;
+        private _actSplashScreen: ActSplashScreen;
+        private _actVazio: ActVazio;
 
         private get actHome(): ActHome
         {
@@ -47,8 +52,6 @@ module Sentinela
             return this._actHome;
         }
 
-        private _actLogin: ActLogin;
-
         private get actLogin(): ActLogin
         {
             if (this._actLogin != null)
@@ -61,8 +64,6 @@ module Sentinela
             return this._actLogin;
         }
 
-        private _actServidorCadastro: ActServidorCadastro;
-
         private get actServidorCadastro(): ActServidorCadastro
         {
             if (this._actServidorCadastro != null)
@@ -74,7 +75,6 @@ module Sentinela
 
             return this._actServidorCadastro;
         }
-        private _actServidorDetalhe: ActServidorDetalhe;
 
         private get actServidorDetalhe(): ActServidorDetalhe
         {
@@ -87,7 +87,6 @@ module Sentinela
 
             return this._actServidorDetalhe;
         }
-        private _actSplashScreen: ActSplashScreen;
 
         private get actSplashScreen(): ActSplashScreen
         {
@@ -100,7 +99,6 @@ module Sentinela
 
             return this._actSplashScreen;
         }
-        private _actVazio: ActVazio;
 
         private get actVazio(): ActVazio
         {
@@ -143,7 +141,7 @@ module Sentinela
 
     // #region Inicialização
 
-    $(document).ready(() => { PagSentinelaPrincipal.i.iniciar(); });
+    $(document).ready(() => { PagSentinelaPrincipal.i.iniciar() });
 
     // #endregion Inicialização
 }

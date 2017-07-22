@@ -1,6 +1,6 @@
-﻿namespace Sentinela.Html.Activity
+﻿namespace Sentinela.Html.Componente.Activity
 {
-    internal class ActLogin : ActSentinelaBase
+    internal class ActServidorDetalhe : ActSentinelaBase
     {
         #region Constantes
 
@@ -15,16 +15,6 @@
         #endregion Construtores
 
         #region Métodos
-
-        protected override bool getBooJs()
-        {
-            return true;
-        }
-
-        protected override bool getBooMostrarLogo()
-        {
-            return true;
-        }
 
         #endregion Métodos
 

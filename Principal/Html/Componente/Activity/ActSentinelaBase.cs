@@ -4,7 +4,7 @@ using NetZ.Web.Html.Activity;
 using NetZ.Web.Server.Arquivo.Css;
 using Sentinela.Html.Componente.Mobile;
 
-namespace Sentinela.Html.Activity
+namespace Sentinela.Html.Componente.Activity
 {
     internal abstract class ActSentinelaBase : ActivityBase
     {
@@ -55,13 +55,6 @@ namespace Sentinela.Html.Activity
 
         #region Métodos
 
-        protected override void addJs(LstTag<JavaScriptTag> lstJs)
-        {
-            base.addJs(lstJs);
-
-            lstJs.Add(new JavaScriptTag(typeof(ActSentinelaBase), 199));
-        }
-
         protected virtual bool getBooMostrarLogo()
         {
             return false;
@@ -76,12 +69,11 @@ namespace Sentinela.Html.Activity
             this.montarLayoutDivLogo();
         }
 
-        protected override void setCss(CssArquivo css)
+        protected override void setCss(CssArquivoBase css)
         {
             base.setCss(css);
 
             this.addCss(css.setBackgroundGradiente("#03515c", "#0d756c"));
-            this.addCss(css.setDisplay("none"));
             this.addCss(css.setHeight(100, "%"));
             this.addCss(css.setPaddingLeft(20));
             this.addCss(css.setPaddingRight(20));
@@ -100,7 +92,7 @@ namespace Sentinela.Html.Activity
             this.divLogo.setPai(this);
         }
 
-        private void setCssDivLogo(CssArquivo css)
+        private void setCssDivLogo(CssArquivoBase css)
         {
             if (!this.getBooMostrarLogo())
             {
@@ -108,7 +100,7 @@ namespace Sentinela.Html.Activity
             }
 
             this.divLogo.addCss(css.setBackgroundImage(AppWebBase.DIR_MEDIA_SVG + "sentinela-logo.svg"));
-            this.divLogo.addCss(css.setBackgroundPosition("center bottom"));
+            this.divLogo.addCss(css.setBackgroundPosition("center"));
             this.divLogo.addCss(css.setBackgroundRepeat("no-repeat"));
             this.divLogo.addCss(css.setBackgroundSize("75%"));
             this.divLogo.addCss(css.setHeight(75, "%"));

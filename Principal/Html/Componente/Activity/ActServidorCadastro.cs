@@ -5,7 +5,7 @@ using Sentinela.Html.Componente.Mobile;
 using NetZ.Web.Html.Componente.Botao.ActionBar;
 using NetZ.Web;
 
-namespace Sentinela.Html.Activity
+namespace Sentinela.Html.Componente.Activity
 {
     internal class ActServidorCadastro : ActSentinelaBase
     {
@@ -89,11 +89,6 @@ namespace Sentinela.Html.Activity
 
         #region Métodos
 
-        protected override bool getBooJs()
-        {
-            return true;
-        }
-
         protected override void inicializar()
         {
             base.inicializar();
@@ -122,7 +117,7 @@ namespace Sentinela.Html.Activity
             this.cmpStrGrupo.setPai(this);
         }
 
-        protected override void setCss(CssArquivo css)
+        protected override void setCss(CssArquivoBase css)
         {
             base.setCss(css);
 

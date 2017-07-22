@@ -2,6 +2,8 @@
 using NetZ.Web;
 using NetZ.Web.Server;
 using System.Collections.Generic;
+using DigoFramework.Servico;
+using System;
 
 namespace Sentinela
 {
@@ -42,7 +44,7 @@ namespace Sentinela
 
         #region Métodos
 
-        protected override ConfigWebBase getObjConfig()
+        protected override ConfigBase getCfg()
         {
             return new ConfigSentinela();
         }
@@ -52,9 +54,9 @@ namespace Sentinela
             return new Design.TemaSentinela();
         }
 
-        protected override void inicializarLstSrv(List<ServerBase> lstSrv)
+        protected override void inicializarLstSrv(List<ServicoBase> lstSrv)
         {
-            lstSrv.Add(new Server.SrvSentinelaHttp());
+            lstSrv.Add(new Server.SrvHttpSentinela());
         }
 
         #endregion Métodos

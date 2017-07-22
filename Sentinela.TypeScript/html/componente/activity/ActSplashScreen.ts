@@ -1,16 +1,13 @@
-﻿/// <reference path="../../../Web.TypeScript/html/activity/ActivityBase.ts"/>
-
-module Sentinela {
+﻿module Sentinela
+{
     // #region Importações
-
-    import ActivityBase = Web.ActivityBase;
-
     // #endregion Importações
 
     // #region Enumerados
     // #endregion Enumerados
 
-    export abstract class ActSentinelaBase extends ActivityBase {
+    export class ActSplashScreen extends ActSentinelaBase
+    {
         // #region Constantes
         // #endregion Constantes
 
@@ -19,9 +16,27 @@ module Sentinela {
 
         // #region Construtores
 
+        constructor()
+        {
+            super(ActSplashScreen.name);
+        }
+
         // #endregion Construtores
 
         // #region Métodos
+
+        private fecharSplash(): void
+        {
+            PagPrincipal.i.fecharSplash();
+        }
+
+        protected inicializar(): void
+        {
+            super.inicializar();
+
+            window.setTimeout((() => this.fecharSplash()), 1500);
+        }
+
         // #endregion Métodos
 
         // #region Eventos

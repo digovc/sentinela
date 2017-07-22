@@ -2,7 +2,7 @@
 using NetZ.Web.Html.Componente.Botao;
 using NetZ.Web.Server.Arquivo.Css;
 
-namespace Sentinela.Html.Activity
+namespace Sentinela.Html.Componente.Activity
 {
     internal class ActVazio : ActSentinelaBase
     {
@@ -69,11 +69,6 @@ namespace Sentinela.Html.Activity
 
         #region Métodos
 
-        protected override bool getBooJs()
-        {
-            return true;
-        }
-
         protected override bool getBooMostrarLogo()
         {
             return true;
@@ -98,7 +93,7 @@ namespace Sentinela.Html.Activity
             this.btnAddServidor.setPai(this.divBtnContainer);
         }
 
-        protected override void setCss(CssArquivo css)
+        protected override void setCss(CssArquivoBase css)
         {
             base.setCss(css);
 

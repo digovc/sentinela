@@ -17,6 +17,21 @@ module Sentinela
         // #endregion Constantes
 
         // #region Atributos
+
+        protected static _i: AppSentinela;
+
+        public static get i(): AppSentinela
+        {
+            if (AppSentinela._i != null)
+            {
+                return AppSentinela._i;
+            }
+
+            AppSentinela._i = new AppSentinela();
+
+            return AppSentinela._i;
+        }
+
         // #endregion Atributos
 
         // #region Construtores

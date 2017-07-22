@@ -35,28 +35,33 @@ namespace Sentinela
 
         private void runDebug()
         {
-            Log.i.info("Abrindo em modo \"aplicação\".");
+            Log.i.info("Abrindo em modo de aplicação.");
 
-            i.getAppWeb().inicializarServidor();
+            this.getAppWeb().iniciar();
 
             Console.Read();
 
             Log.i.info("Fechando a aplicação.");
 
-            i.getAppWeb().pararServidor();
+            this.getAppWeb().pararServidor();
         }
 
         private void runService()
         {
             //Debugger.Launch();
 
-            Log.i.info("Abrindo em modo \"serviço\".");
+            Log.i.info("Abrindo em modo de serviço.");
 
             Run(i);
         }
 
         private bool validarDebug(string[] arrStrParam)
         {
+            if (this.getAppWeb().booDesenvolvimento)
+            {
+                return true;
+            }
+
             if (Debugger.IsAttached)
             {
                 return true;

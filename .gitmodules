@@ -7,9 +7,6 @@
 [submodule "Web.TypeScript"]
 	path = Web.TypeScript
 	url = http://servidor.relatar.com.br:8080/tfs/Relatar/_git/NetZ.Web.TypeScript
-[submodule "SistemaBase"]
-	path = SistemaBase
-	url = http://tfs.relatar.com.br:8080/tfs/Relatar/_git/NetZ.SistemaBase
 [submodule "Persistencia"]
 	path = Persistencia
 	url = http://tfs.relatar.com.br:8080/tfs/Relatar/_git/NetZ.Persistencia

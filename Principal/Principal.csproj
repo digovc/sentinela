@@ -50,7 +50,6 @@
     <Compile Include="Html\Componente\Activity\ActServidorCadastro.cs" />
     <Compile Include="Html\Componente\Activity\ActServidorDetalhe.cs" />
     <Compile Include="Html\Componente\Activity\ActSplashScreen.cs" />
-    <Compile Include="Html\Componente\Activity\ActVazio.cs" />
     <Compile Include="Html\Componente\Campo\CampoSentinela.cs" />
     <Compile Include="Html\Componente\Mobile\ActionBarSentinela.cs" />
     <Compile Include="Html\Pagina\PagPrincipal.cs" />

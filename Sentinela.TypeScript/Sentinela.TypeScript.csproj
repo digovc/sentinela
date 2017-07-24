@@ -67,7 +67,6 @@
     <TypeScriptCompile Include="html\componente\activity\ActServidorCadastro.ts" />
     <TypeScriptCompile Include="html\componente\activity\ActServidorDetalhe.ts" />
     <TypeScriptCompile Include="html\componente\activity\ActSplashScreen.ts" />
-    <TypeScriptCompile Include="html\componente\activity\ActVazio.ts" />
     <TypeScriptCompile Include="html\componente\campo\CampoSentinela.ts" />
     <TypeScriptCompile Include="html\componente\mobile\ActionBarSentinela.ts" />
     <TypeScriptCompile Include="html\pagina\PagPrincipal.ts" />

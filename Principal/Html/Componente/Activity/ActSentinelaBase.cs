@@ -60,6 +60,13 @@ namespace Sentinela.Html.Componente.Activity
             return false;
         }
 
+        protected override void inicializar()
+        {
+            base.inicializar();
+
+            this.strId = this.GetType().Name;
+        }
+
         protected override void montarLayout()
         {
             base.montarLayout();

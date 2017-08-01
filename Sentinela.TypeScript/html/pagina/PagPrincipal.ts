@@ -34,6 +34,8 @@ module Sentinela
         }
 
         private _actHome: ActHome;
+        private _actServidorCadastro: ActServidorCadastro;
+        private _actServidorDetalhe: ActServidorDetalhe;
         private _actSplashScreen: ActSplashScreen;
 
         private get actHome(): ActHome
@@ -46,6 +48,30 @@ module Sentinela
             this._actHome = new ActHome();
 
             return this._actHome;
+        }
+
+        private get actServidorCadastro(): ActServidorCadastro
+        {
+            if (this._actServidorCadastro != null)
+            {
+                return this._actServidorCadastro;
+            }
+
+            this._actServidorCadastro = new ActServidorCadastro();
+
+            return this._actServidorCadastro;
+        }
+
+        private get actServidorDetalhe(): ActServidorDetalhe
+        {
+            if (this._actServidorDetalhe != null)
+            {
+                return this._actServidorDetalhe;
+            }
+
+            this._actServidorDetalhe = new ActServidorDetalhe();
+
+            return this._actServidorDetalhe;
         }
 
         private get actSplashScreen(): ActSplashScreen
@@ -67,16 +93,16 @@ module Sentinela
 
         // #region Métodos
 
-        private abrirActHome(): void
+        public adicionar(): void
         {
-            this.actSplashScreen.dispose();
+            this.actHome.esconder();
 
-            this.actHome.mostrar();
+            this.actServidorCadastro.mostrar();
         }
 
         public fecharSplash(): void
         {
-            this.actSplashScreen.esconder(undefined, (() => this.abrirActHome()));
+            this.actSplashScreen.esconder(undefined, (() => this.actSplashScreen.dispose()));
         }
 
         protected inicializar(): void
@@ -85,6 +111,9 @@ module Sentinela
 
             this.inicializarApp();
 
+            this.actHome.iniciar();
+            this.actServidorCadastro.iniciar();
+            this.actServidorDetalhe.iniciar();
             this.actSplashScreen.iniciar();
         }
 

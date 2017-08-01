@@ -34,16 +34,6 @@ namespace Sentinela.Html.Pagina
             lstJs.Add(new JavaScriptTag(typeof(AppSentinela)));
         }
 
-        protected override void addLayoutFixo(JavaScriptTag tagJs)
-        {
-            base.addLayoutFixo(tagJs);
-
-            tagJs.addLayoutFixo(typeof(ActHome));
-            tagJs.addLayoutFixo(typeof(ActServidorCadastro));
-            tagJs.addLayoutFixo(typeof(ActServidorDetalhe));
-            tagJs.addLayoutFixo(typeof(ActVazio));
-        }
-
         protected override bool getBooJsAutoInicializavel()
         {
             return true;
@@ -56,6 +46,10 @@ namespace Sentinela.Html.Pagina
             new ActSplashScreen().setPai(this);
 
             new ActHome().setPai(this);
+
+            new ActServidorCadastro().setPai(this);
+
+            new ActServidorDetalhe().setPai(this);
         }
 
         protected override void setCss(CssArquivoBase css)

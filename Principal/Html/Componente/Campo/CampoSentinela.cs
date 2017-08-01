@@ -56,6 +56,7 @@ namespace Sentinela.Html.Componente.Campo
             this.txt.addCss(css.setColor("white"));
             this.txt.addCss(css.setFontSize(20));
             this.txt.addCss(css.setHeight(100, "%"));
+            this.txt.addCss(css.setTextIndent(10));
             this.txt.addCss(css.setWidth(100, "%"));
         }
 

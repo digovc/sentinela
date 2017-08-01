@@ -45,8 +45,6 @@ namespace Sentinela.Html.Componente.Activity
         {
             base.inicializar();
 
-            this.strId = this.GetType().Name;
-
             this.divInfo.strConteudo = string.Format("Versão: {0}", AppSentinela.i.strVersao);
         }
 

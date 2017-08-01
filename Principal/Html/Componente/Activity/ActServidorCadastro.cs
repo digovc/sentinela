@@ -121,6 +121,8 @@ namespace Sentinela.Html.Componente.Activity
         {
             base.setCss(css);
 
+            this.addCss(css.setDisplay("none"));
+
             this.btnSalvar.addCss(css.setBackgroundImage(AppWebBase.DIR_MEDIA_SVG + "save.svg"));
             this.btnSalvar.addCss(css.setFloat("right"));
         }

@@ -1,4 +1,6 @@
-﻿namespace Sentinela.Html.Componente.Activity
+﻿using NetZ.Web.Server.Arquivo.Css;
+
+namespace Sentinela.Html.Componente.Activity
 {
     internal class ActServidorDetalhe : ActSentinelaBase
     {
@@ -15,6 +17,13 @@
         #endregion Construtores
 
         #region Métodos
+
+        protected override void setCss(CssArquivoBase css)
+        {
+            base.setCss(css);
+
+            this.addCss(css.setDisplay("none"));
+        }
 
         #endregion Métodos
 

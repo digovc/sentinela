@@ -1,9 +1,7 @@
-﻿using System;
+﻿using NetZ.Web;
+using NetZ.Web.Html.Componente.Botao.ActionBar;
 using NetZ.Web.Server.Arquivo.Css;
 using Sentinela.Html.Componente.Campo;
-using Sentinela.Html.Componente.Mobile;
-using NetZ.Web.Html.Componente.Botao.ActionBar;
-using NetZ.Web;
 
 namespace Sentinela.Html.Componente.Activity
 {
@@ -15,9 +13,25 @@ namespace Sentinela.Html.Componente.Activity
 
         #region Atributos
 
+        private BotaoActionBar _btnSalvar;
         private CampoSentinela _cmpStrGrupo;
         private CampoSentinela _cmpStrNome;
-        private CampoSentinela _cmpUrlEndereco;
+        private CampoSentinela _cmpUrl;
+
+        private BotaoActionBar btnSalvar
+        {
+            get
+            {
+                if (_btnSalvar != null)
+                {
+                    return _btnSalvar;
+                }
+
+                _btnSalvar = new BotaoActionBar();
+
+                return _btnSalvar;
+            }
+        }
 
         private CampoSentinela cmpStrGrupo
         {
@@ -49,35 +63,18 @@ namespace Sentinela.Html.Componente.Activity
             }
         }
 
-        private CampoSentinela cmpUrlEndereco
+        private CampoSentinela cmpUrl
         {
             get
             {
-                if (_cmpUrlEndereco != null)
+                if (_cmpUrl != null)
                 {
-                    return _cmpUrlEndereco;
+                    return _cmpUrl;
                 }
 
-                _cmpUrlEndereco = new CampoSentinela();
+                _cmpUrl = new CampoSentinela();
 
-                return _cmpUrlEndereco;
-            }
-        }
-
-        private BotaoActionBar _btnSalvar;
-
-        private BotaoActionBar btnSalvar
-        {
-            get
-            {
-                if (_btnSalvar != null)
-                {
-                    return _btnSalvar;
-                }
-
-                _btnSalvar = new BotaoActionBar();
-
-                return _btnSalvar;
+                return _cmpUrl;
             }
         }
 
@@ -93,15 +90,19 @@ namespace Sentinela.Html.Componente.Activity
         {
             base.inicializar();
 
+            this.strId = "_div_id";
+
+            this.btnSalvar.strId = "_btn_salvar_id";
+
+            this.cmpStrGrupo.strId = "_cmp_grupo_id";
             this.cmpStrGrupo.strTitle = "Grupo";
+
+            this.cmpStrNome.strId = "_cmp_nome_id";
             this.cmpStrNome.strTitle = "Nome";
-            this.cmpUrlEndereco.strTitle = "Endereço";
 
-            this.inicializarAcb();
-        }
+            this.cmpUrl.strId = "_cmp_url_id";
+            this.cmpUrl.strTitle = "Endereço";
 
-        private void inicializarAcb()
-        {
             this.acb.booMostrarMenu = false;
             this.acb.booMostrarVoltar = true;
         }
@@ -113,7 +114,7 @@ namespace Sentinela.Html.Componente.Activity
             this.btnSalvar.setPai(this.acb);
 
             this.cmpStrNome.setPai(this);
-            this.cmpUrlEndereco.setPai(this);
+            this.cmpUrl.setPai(this);
             this.cmpStrGrupo.setPai(this);
         }
 

@@ -61,6 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="AppSentinela.ts" />
+    <TypeScriptCompile Include="dominio\ServidorDominio.ts" />
     <TypeScriptCompile Include="html\componente\activity\ActHome.ts" />
     <TypeScriptCompile Include="html\componente\activity\ActLogin.ts" />
     <TypeScriptCompile Include="html\componente\activity\ActSentinelaBase.ts" />

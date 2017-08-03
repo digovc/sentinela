@@ -60,6 +60,13 @@ namespace Sentinela.Html.Componente.Campo
             this.txt.addCss(css.setWidth(100, "%"));
         }
 
+        protected override void setStrId(string strId)
+        {
+            base.setStrId(strId);
+
+            this.txt.strId = (strId + "_txt");
+        }
+
         protected override void setStrTitle(string strTitle)
         {
             base.setStrTitle(strTitle);

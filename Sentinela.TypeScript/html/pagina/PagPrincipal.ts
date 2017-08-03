@@ -1,10 +1,12 @@
 ﻿/// <reference path="../../../Web.TypeScript/html/pagina/PagMobile.ts"/>
+/// <reference path="../../../Web.TypeScript/Utils.ts"/>
 
 module Sentinela
 {
     // #region Importações
 
     import PagMobile = Web.PagMobile;
+    import Utils = Web.Utils;
 
     // #endregion Importações
 
@@ -14,6 +16,8 @@ module Sentinela
     export class PagPrincipal extends PagMobile
     {
         // #region Constantes
+
+        private static get STR_JSN_LISTA_APARELHO(): string { return "jsn-lista-aparelho" };
 
         // #endregion Constantes
 
@@ -34,9 +38,8 @@ module Sentinela
         }
 
         private _actHome: ActHome;
-        private _actServidorCadastro: ActServidorCadastro;
-        private _actServidorDetalhe: ActServidorDetalhe;
         private _actSplashScreen: ActSplashScreen;
+        private _arrObjServidor: Array<ServidorDominio>;
 
         private get actHome(): ActHome
         {
@@ -48,30 +51,6 @@ module Sentinela
             this._actHome = new ActHome();
 
             return this._actHome;
-        }
-
-        private get actServidorCadastro(): ActServidorCadastro
-        {
-            if (this._actServidorCadastro != null)
-            {
-                return this._actServidorCadastro;
-            }
-
-            this._actServidorCadastro = new ActServidorCadastro();
-
-            return this._actServidorCadastro;
-        }
-
-        private get actServidorDetalhe(): ActServidorDetalhe
-        {
-            if (this._actServidorDetalhe != null)
-            {
-                return this._actServidorDetalhe;
-            }
-
-            this._actServidorDetalhe = new ActServidorDetalhe();
-
-            return this._actServidorDetalhe;
         }
 
         private get actSplashScreen(): ActSplashScreen
@@ -86,6 +65,18 @@ module Sentinela
             return this._actSplashScreen;
         }
 
+        private get arrObjServidor(): Array<ServidorDominio>
+        {
+            if (this._arrObjServidor != null)
+            {
+                return this._arrObjServidor;
+            }
+
+            this._arrObjServidor = this.getarrObjServidor();
+
+            return this._arrObjServidor;
+        }
+
         // #endregion Atributos
 
         // #region Construtores
@@ -97,12 +88,45 @@ module Sentinela
         {
             this.actHome.esconder();
 
-            this.actServidorCadastro.mostrar();
+            var actServidorCadastro = new ActServidorCadastro();
+
+            this.tagBody.addHtml(actServidorCadastro.strLayoutFixo);
+
+            actServidorCadastro.iniciar();
         }
 
         public fecharSplash(): void
         {
+            this.actHome.booVisivel = true;
+
             this.actSplashScreen.esconder(undefined, (() => this.actSplashScreen.dispose()));
+        }
+
+        private getarrObjServidor(): Array<ServidorDominio>
+        {
+            var arrObjServidorResultado = new Array<ServidorDominio>();
+
+            var jsnArrObjServidor = window.localStorage.getItem(PagPrincipal.STR_JSN_LISTA_APARELHO);
+
+            if (Utils.getBooStrVazia(jsnArrObjServidor))
+            {
+                window.localStorage.setItem(PagPrincipal.STR_JSN_LISTA_APARELHO, JSON.stringify(arrObjServidorResultado));
+
+                return arrObjServidorResultado;
+            }
+
+            jsnArrObjServidor = JSON.parse(jsnArrObjServidor);
+
+            for (var i = 0; i < jsnArrObjServidor.length; i++)
+            {
+                var objServidor = new ServidorDominio();
+
+                objServidor.copiarDados(jsnArrObjServidor[i]);
+
+                arrObjServidorResultado.push(objServidor);
+            }
+
+            return arrObjServidorResultado;
         }
 
         protected inicializar(): void
@@ -112,8 +136,6 @@ module Sentinela
             this.inicializarApp();
 
             this.actHome.iniciar();
-            this.actServidorCadastro.iniciar();
-            this.actServidorDetalhe.iniciar();
             this.actSplashScreen.iniciar();
         }
 
@@ -122,6 +144,40 @@ module Sentinela
             AppSentinela.i.pag = this;
 
             AppSentinela.i.iniciar();
+        }
+
+        public salvar(objServidor: ServidorDominio): void
+        {
+            this.validar(objServidor);
+
+            this.arrObjServidor.push(objServidor);
+
+            window.localStorage.setItem(PagPrincipal.STR_JSN_LISTA_APARELHO, JSON.stringify(this.arrObjServidor));
+
+            this.actHome.mostrar();
+        }
+
+        private validar(objServidor: ServidorDominio): void
+        {
+            if (objServidor == null)
+            {
+                throw new Error("O servidor não pode estar nulo.");
+            }
+
+            this.arrObjServidor.forEach(o => this.validarItem(o, objServidor));
+        }
+
+        private validarItem(objServidor: ServidorDominio, objServidorNovo: ServidorDominio): void
+        {
+            if (objServidor.strNome == objServidorNovo.strNome)
+            {
+                throw new Error("Já existe um servidor com este nome.");
+            }
+
+            if (objServidor.url == objServidorNovo.url)
+            {
+                throw new Error("Já existe um servidor com este endereço (URL).");
+            }
         }
 
         // #endregion Métodos

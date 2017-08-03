@@ -1,4 +1,6 @@
-﻿using NetZ.Web.Html;
+﻿using NetZ.Web;
+using NetZ.Web.DataBase.Dominio;
+using NetZ.Web.Html;
 using NetZ.Web.Html.Pagina;
 using NetZ.Web.Server.Arquivo.Css;
 using Sentinela.Html.Componente.Activity;
@@ -31,7 +33,17 @@ namespace Sentinela.Html.Pagina
         {
             base.addJs(lstJs);
 
+            lstJs.Add(new JavaScriptTag(AppWebBase.DIR_JS + "sentinela/dominio/ServidorDominio.js", 201));
             lstJs.Add(new JavaScriptTag(typeof(AppSentinela)));
+            lstJs.Add(new JavaScriptTag(typeof(DominioWebBase)));
+        }
+
+        protected override void addLayoutFixo(JavaScriptTag tagJs)
+        {
+            base.addLayoutFixo(tagJs);
+
+            tagJs.addLayoutFixo(typeof(ActServidorCadastro));
+            tagJs.addLayoutFixo(typeof(ActServidorDetalhe));
         }
 
         protected override bool getBooJsAutoInicializavel()
@@ -46,10 +58,6 @@ namespace Sentinela.Html.Pagina
             new ActSplashScreen().setPai(this);
 
             new ActHome().setPai(this);
-
-            new ActServidorCadastro().setPai(this);
-
-            new ActServidorDetalhe().setPai(this);
         }
 
         protected override void setCss(CssArquivoBase css)

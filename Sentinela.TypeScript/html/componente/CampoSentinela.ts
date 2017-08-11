@@ -1,5 +1,5 @@
-﻿/// <reference path="../../../../Web.TypeScript/html/componente/ComponenteHtml.ts"/>
-/// <reference path="../../../../Web.TypeScript/html/Input.ts"/>
+﻿/// <reference path="../../../Web.TypeScript/html/componente/ComponenteHtml.ts"/>
+/// <reference path="../../../Web.TypeScript/html/Input.ts"/>
 
 module Sentinela
 {

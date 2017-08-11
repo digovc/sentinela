@@ -17,8 +17,6 @@ module Sentinela
     {
         // #region Constantes
 
-        private static get STR_JSN_LISTA_APARELHO(): string { return "jsn-lista-aparelho" };
-
         // #endregion Constantes
 
         // #region Atributos
@@ -39,7 +37,6 @@ module Sentinela
 
         private _actHome: ActHome;
         private _actSplashScreen: ActSplashScreen;
-        private _arrObjServidor: Array<ServidorDominio>;
 
         private get actHome(): ActHome
         {
@@ -65,18 +62,6 @@ module Sentinela
             return this._actSplashScreen;
         }
 
-        private get arrObjServidor(): Array<ServidorDominio>
-        {
-            if (this._arrObjServidor != null)
-            {
-                return this._arrObjServidor;
-            }
-
-            this._arrObjServidor = this.getarrObjServidor();
-
-            return this._arrObjServidor;
-        }
-
         // #endregion Atributos
 
         // #region Construtores
@@ -84,7 +69,7 @@ module Sentinela
 
         // #region Métodos
 
-        public adicionar(): void
+        public abrirActServidorCadastro(): void
         {
             this.actHome.esconder();
 
@@ -102,33 +87,6 @@ module Sentinela
             this.actSplashScreen.esconder(undefined, (() => this.actSplashScreen.dispose()));
         }
 
-        private getarrObjServidor(): Array<ServidorDominio>
-        {
-            var arrObjServidorResultado = new Array<ServidorDominio>();
-
-            var jsnArrObjServidor = window.localStorage.getItem(PagPrincipal.STR_JSN_LISTA_APARELHO);
-
-            if (Utils.getBooStrVazia(jsnArrObjServidor))
-            {
-                window.localStorage.setItem(PagPrincipal.STR_JSN_LISTA_APARELHO, JSON.stringify(arrObjServidorResultado));
-
-                return arrObjServidorResultado;
-            }
-
-            jsnArrObjServidor = JSON.parse(jsnArrObjServidor);
-
-            for (var i = 0; i < jsnArrObjServidor.length; i++)
-            {
-                var objServidor = new ServidorDominio();
-
-                objServidor.copiarDados(jsnArrObjServidor[i]);
-
-                arrObjServidorResultado.push(objServidor);
-            }
-
-            return arrObjServidorResultado;
-        }
-
         protected inicializar(): void
         {
             super.inicializar();
@@ -136,6 +94,7 @@ module Sentinela
             this.inicializarApp();
 
             this.actHome.iniciar();
+
             this.actSplashScreen.iniciar();
         }
 
@@ -148,36 +107,9 @@ module Sentinela
 
         public salvar(objServidor: ServidorDominio): void
         {
-            this.validar(objServidor);
-
-            this.arrObjServidor.push(objServidor);
-
-            window.localStorage.setItem(PagPrincipal.STR_JSN_LISTA_APARELHO, JSON.stringify(this.arrObjServidor));
+            AppSentinela.i.salvar(objServidor);
 
             this.actHome.mostrar();
-        }
-
-        private validar(objServidor: ServidorDominio): void
-        {
-            if (objServidor == null)
-            {
-                throw new Error("O servidor não pode estar nulo.");
-            }
-
-            this.arrObjServidor.forEach(o => this.validarItem(o, objServidor));
-        }
-
-        private validarItem(objServidor: ServidorDominio, objServidorNovo: ServidorDominio): void
-        {
-            if (objServidor.strNome == objServidorNovo.strNome)
-            {
-                throw new Error("Já existe um servidor com este nome.");
-            }
-
-            if (objServidor.url == objServidorNovo.url)
-            {
-                throw new Error("Já existe um servidor com este endereço (URL).");
-            }
         }
 
         // #endregion Métodos

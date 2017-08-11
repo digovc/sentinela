@@ -1,6 +1,6 @@
 ﻿using NetZ.Web.Html.Componente.Mobile;
 
-namespace Sentinela.Html.Componente.Mobile
+namespace Sentinela.Html.Componente
 {
     internal class ActionBarSentinela : ActionBarBase
     {

@@ -2,7 +2,7 @@
 using NetZ.Web.Html.Componente;
 using NetZ.Web.Server.Arquivo.Css;
 
-namespace Sentinela.Html.Componente.Campo
+namespace Sentinela.Html.Componente
 {
     internal class CampoSentinela : ComponenteHtml
     {

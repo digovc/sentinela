@@ -2,7 +2,6 @@
 using NetZ.Web.Html;
 using NetZ.Web.Html.Activity;
 using NetZ.Web.Server.Arquivo.Css;
-using Sentinela.Html.Componente.Mobile;
 
 namespace Sentinela.Html.Componente.Activity
 {

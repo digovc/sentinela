@@ -1,4 +1,4 @@
-﻿/// <reference path="../../../../Web.TypeScript/html/componente/mobile/ActionBarBase.ts"/>
+﻿/// <reference path="../../../Web.TypeScript/html/componente/mobile/ActionBarBase.ts"/>
 
 module Sentinela
 {

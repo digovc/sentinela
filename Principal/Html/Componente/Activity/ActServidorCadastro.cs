@@ -1,7 +1,6 @@
 ﻿using NetZ.Web;
 using NetZ.Web.Html.Componente.Botao.ActionBar;
 using NetZ.Web.Server.Arquivo.Css;
-using Sentinela.Html.Componente.Campo;
 
 namespace Sentinela.Html.Componente.Activity
 {

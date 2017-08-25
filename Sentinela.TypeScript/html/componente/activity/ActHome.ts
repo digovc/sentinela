@@ -109,6 +109,12 @@ module Sentinela
             {
                 return;
             }
+
+            var divServidorTile = new DivServidorTile(this, objServidor);
+
+            this.divLista.addHtml(divServidorTile.strLayoutFixo);
+
+            divServidorTile.iniciar();
         }
 
         protected inicializar(): void

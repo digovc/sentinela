@@ -1,5 +1,6 @@
 ﻿/// <reference path="../../../Web.TypeScript/html/componente/ComponenteHtml.ts"/>
 /// <reference path="../../../Web.TypeScript/html/Div.ts"/>
+/// <reference path="../../../Web.TypeScript/Utils.ts"/>
 
 module Sentinela
 {
@@ -7,6 +8,7 @@ module Sentinela
 
     import ComponenteHtml = Web.ComponenteHtml;
     import Div = Web.Div;
+    import Utils = Web.Utils;
 
     // #endregion Importações
 
@@ -20,8 +22,20 @@ module Sentinela
 
         // #region Atributos
 
+        private _actHome: ActHome;
         private _divStatus: Div;
         private _divTitulo: Div;
+        private _objServidor: ServidorDominio;
+
+        private get actHome(): ActHome
+        {
+            return this._actHome;
+        }
+
+        private set actHome(actHome: ActHome)
+        {
+            this._actHome = actHome;
+        }
 
         private get divStatus(): Div
         {
@@ -47,12 +61,49 @@ module Sentinela
             return this._divTitulo;
         }
 
+        private get objServidor(): ServidorDominio
+        {
+            return this._objServidor;
+        }
+
+        private set objServidor(objServidor: ServidorDominio)
+        {
+            this._objServidor = objServidor;
+        }
+
         // #endregion Atributos
 
         // #region Construtor
+
+        constructor(actHome: ActHome, objServidor: ServidorDominio)
+        {
+            super(null);
+
+            this.actHome = actHome;
+            this.objServidor = objServidor;
+            this.strId = (DivServidorTile.name + "_" + this.intObjetoId);
+        }
+
         // #endregion Construtor
 
         // #region Métodos
+
+        protected montarLayout(): void
+        {
+            super.montarLayout();
+
+            this.divTitulo.strConteudo = this.objServidor.strNome;
+        }
+
+        protected montarLayoutFixo(strLayoutFixo: string): string
+        {
+            strLayoutFixo = super.montarLayoutFixo(strLayoutFixo);
+
+            strLayoutFixo = Utils.replaceAll(strLayoutFixo, "_div_id", this.strId);
+
+            return strLayoutFixo;
+        }
+
         // #endregion Métodos
 
         // #region Eventos
